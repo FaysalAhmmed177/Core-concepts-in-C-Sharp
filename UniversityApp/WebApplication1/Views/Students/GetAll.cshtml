@@ -1,0 +1,15 @@
+﻿@model List<WebApplication1.Models.Student>
+
+<h2>GetAll</h2>
+<table class="table table-bordered">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.StudentName</td>
+            <td>@item.RegNo</td>
+            <td>@item.Email</td>
+            <td>@item.Address</td>
+            <td>@item.DepartmentName</td>
+        </tr>
+    }
+</table>

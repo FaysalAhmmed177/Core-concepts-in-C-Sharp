@@ -1,0 +1,52 @@
+﻿@model WebApplication1.Models.Student
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Save Student</h2>
+<h3>@ViewBag.Message</h3>
+@using (Html.BeginForm(FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>@Html.LabelFor(c => c.StudentName)</td>
+        <td>@Html.TextBoxFor(c => c.StudentName, new {@class = "form-control"})</td>
+        <td>@Html.ValidationMessageFor(c => c.StudentName)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.RegNo)</td>
+        <td>@Html.TextBoxFor(c => c.RegNo, new {@class = "form-control"})</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.Email)</td>
+        <td>@Html.TextBoxFor(c => c.Email, new {@class = "form-control"})</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.Address)</td>
+        <td>@Html.TextBoxFor(c => c.Address, new {@class = "form-control"})</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.DepartmentName)</td>
+        <td>@Html.DropDownListFor(c => c.DepartmentName, new SelectList(ViewBag.Department, "Id", "ShortName"), "---Select---", new {@class = "form-control"})</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.RegNo)</td>
+        <td><input type="submit" value="Save"/></td>
+    </tr>
+</table>
+<table class="table table-bordered">
+    @foreach (var item in ViewBag.Students)
+    {
+        <tr>
+            <td>@item.StudentName</td>
+            <td>@item.RegNo</td>
+            <td>@item.Email</td>
+            <td>@item.Address</td>
+            <td>@item.DepartmentName</td>
+        </tr>
+    }
+</table>
+}
+
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Practise.Core.Models.Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List</h1>
+<a href="/Employee/Create">Create new</a>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>ACtions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>edit delete</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
